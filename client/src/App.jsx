@@ -46,6 +46,21 @@ const App = () => {
 
   const handleTabChange = (tab) => setActiveTab(tab);
 
+  const handleInputChange = (e, setState) => {
+    let value = e.target.value;
+
+    // Allow empty input for clearing
+    if (value === "") {
+      setState(value);
+      return;
+    }
+
+    // Regular expression to allow positive decimals and integers (greater than 0)
+    if (/^(\d+(\.\d{0,18})?|0\.\d{0,18})$/.test(value)) {
+      setState(value);
+    }
+  };
+
   //reading lenders and borrowers details
 
   const { data: lenderInfo, isError: lenderError } = useReadContract({
@@ -117,7 +132,7 @@ const App = () => {
         address: lENDINGANDBORROWINGADDRESS,
         abi: lENDINGANDBORROWINGABI,
         functionName: "borrow",
-        args: [ethers.utils.parseEther(borrowAmount)], // Convert borrowAmount to wei
+        args: [ethers.parseEther(borrowAmount)], // Convert borrowAmount to wei
       });
 
       console.log(transaction);
@@ -597,7 +612,7 @@ const App = () => {
                 type="number"
                 placeholder="Borrow Amount (XFI)"
                 value={borrowAmount}
-                onChange={(e) => setBorrowAmount(e.target.value)}
+                onChange={(e) => handleInputChange(e, setBorrowAmount)}
               />
               <button onClick={borrowFunds}>Borrow Funds</button>
             </div>
@@ -606,17 +621,11 @@ const App = () => {
                 type="number"
                 placeholder="Repayment Amount (XFI)"
                 value={repaymentAmount}
-                onChange={(e) => setRepaymentAmount(e.target.value)}
+                onChange={(e) => handleInputChange(e, setRepaymentAmount)}
               />
               <button onClick={repayLoan}>Repay Loan</button>
             </div>
             <div>
-              <input
-                type="text"
-                placeholder="Your Address"
-                value={borrowerAddress}
-                onChange={(e) => setBorrowerAddress(e.target.value)} // Update state for the input value
-              />
               <div className="details-section borrower-details">
                 {borrowerDetails && (
                   <div>
@@ -640,7 +649,7 @@ const App = () => {
                 type="number"
                 placeholder="Deposit Amount (XFI)"
                 value={depositAmount}
-                onChange={(e) => setDepositAmount(e.target.value)}
+                onChange={(e) => handleInputChange(e, setDepositAmount)}
               />
               <button onClick={depositFunds}>Deposit Funds</button>
             </div>
@@ -649,18 +658,12 @@ const App = () => {
                 type="number"
                 placeholder="Withdraw Amount (XFI)"
                 value={withdrawAmount}
-                onChange={(e) => setWithdrawAmount(e.target.value)}
+                onChange={(e) => handleInputChange(e, setWithdrawAmount)}
               />
               <button onClick={withdrawFunds}>Withdraw Funds</button>
             </div>
             <button onClick={claimRewards}>Claim Rewards</button>
             <div>
-              <input
-                type="text"
-                placeholder="Your Address"
-                value={lenderAddress}
-                onChange={(e) => setLenderAddress(e.target.value)} // State updates for the input value
-              />
               <div className="details-section lender-details">
                 {lenderDetails && lenderDetails.depositedAmount && (
                   <div>
@@ -704,7 +707,7 @@ const App = () => {
                 type="number"
                 placeholder="New Borrow Limit (XFI)"
                 value={newBorrowLimit}
-                onChange={(e) => setNewBorrowLimit(e.target.value)}
+                onChange={(e) => handleInputChange(e, setNewBorrowLimit)}
               />
               <button onClick={setBorrowLimit}>Set Borrow Limit</button>
             </div>
