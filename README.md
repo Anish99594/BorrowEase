@@ -44,7 +44,7 @@ constructor(
     uint256 _penaltyFeeRate,
     uint256 _fixedBorrowingLimit
 )
-
+```
 ## Interacting with the Contract
 
 Once deployed, the contract can be interacted with through web3 or directly using a tool like Remix.
