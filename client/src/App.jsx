@@ -574,7 +574,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>BorrowEase</h1>
+      <h1>BorrowEase Protocol</h1>
       <div style={{ marginBottom: "15px" }}>
         <ConnectButton />
       </div>

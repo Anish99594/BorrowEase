@@ -43,9 +43,8 @@ createRoot(document.getElementById("root")).render(
     <QueryClientProvider client={queryClient}>
       <RainbowKitProvider showRecentTransactions={true}>
         <StrictMode>
-          <App>
-            <ConnectButton />
-          </App>
+    
+          <App/>
 
           <Toaster position="bottom-right" reverseOrder={true} />
         </StrictMode>
