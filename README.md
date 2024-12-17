@@ -1,5 +1,11 @@
 # BorrowEase Protocol
 
+## Project Front Page
+
+Here is a preview of the project's front page:
+
+![Dashboard](client/src/assets/BorrowEaseFrontPage.png)
+
 ## Overview
 
 The **Subscription-Based Lending** smart contract is designed to facilitate a decentralized lending and borrowing system with a subscription model. Users can borrow funds by subscribing to the platform for a fixed monthly fee, with grace periods, penalty fees, and interest rates applied to overdue payments. Lenders can deposit funds into the pool and earn monthly rewards based on the funds they've provided.
