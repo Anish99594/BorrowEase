@@ -116,7 +116,7 @@ For any inquiries or support, please open an issue on the GitHub repository or c
 
 ## Links
 
-- **GitHub Repository**: [https://github.com/Anish99594/BorrowEase.git](#)
+- **GitHub Repository**: [https://github.com/Anish99594/BorrowEase.git](https://github.com/Anish99594/BorrowEase.git)
 - **Demo Video**: [Watch here](#)
-- **Project Website**: [https://borrow-ease.vercel.app/](#)
+- **Project Website**: [https://borrow-ease.vercel.app/](https://borrow-ease.vercel.app/)
 
